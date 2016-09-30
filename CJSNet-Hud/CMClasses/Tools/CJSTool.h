@@ -1,6 +1,6 @@
 //
 //  CJSTool.h
-//  songJuLang
+//  
 //
 //  Created by CM on 15/12/18.
 //  Copyright © 2015年 CM. All rights reserved.

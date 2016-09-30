@@ -1,6 +1,6 @@
 //
 //  NetWorkingHelper.m
-//  zhiDanOA
+//  
 //
 //  Created by CM on 16/3/25.
 //  Copyright © 2016年 CM. All rights reserved.
@@ -9,10 +9,7 @@
 #import "NetWorkingHelper.h"
 #import "CJSHUDHelper.h"
 #import "AFNetworking.h"
-#import "UploadParam.h"
-#import "NetWorkMacro.h"
 
-#import "CJSHUDHelper.h"
 @implementation NetWorkingHelper
 
 #pragma mark -- 拼接参数 --
@@ -27,8 +24,9 @@
               parameters:(id)parameters
               hudMessage:(NSString *)message
                   onView:(UIView *)view
-                 success:(void (^)(id))success
-                 failure:(void (^)(NSError *))failure {
+                 success:(void (^)(id responseObject))success
+                 failure:(void (^)(NSError *error))failure {
+    // 如果message 不为空 添加HUD
     if (message) {
         [CJSHUDHelper showWaitHud:message onView:view];
     }
@@ -55,7 +53,7 @@
              *  请求超时的时间
              */
             manager.requestSerializer.timeoutInterval = 5;
-            
+            //  发起GET请求
             [manager GET:URLString parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                 
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -63,10 +61,12 @@
                     [CJSHUDHelper hidenHudFromView:view];
                 }
                 if (success) {
-                    
+                    // 网络请求返回的字典
                     NSDictionary *resultDict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+                    // 请求结果状态码
                     NSString *code = [resultDict objectForKey:NetWorkCode];
                     if ([code isEqualToString:NetWorkSucceedCode]) {
+                        // 解析出内层字典并返回
                         NSDictionary *dataDict = [resultDict objectForKey:NetWorkData];
                         success(dataDict);
                     }else{
@@ -80,7 +80,7 @@
                         [CJSHUDHelper hidenHudFromView:view];
                     }
                     failure(error);
-                    [CJSHUDHelper showWaringHud:@"请求失败,请重试"];
+                    [CJSHUDHelper showWaringHud:[NSString stringWithFormat:@"Error:%@",error.userInfo[@"NSLocalizedDescription"]]];
                 }
             }];
         }else{
@@ -97,14 +97,13 @@
                parameters:(id)parameters
                hudMessage:(NSString *)message
                    onView:(UIView *)view
-                  success:(void (^)(id))success
-                  failure:(void (^)(NSError *))failure {
+                  success:(void (^)(id responseObject))success
+                  failure:(void (^)(NSError *error))failure {
     
     if (message) {
         [CJSHUDHelper showWaitHud:message onView:view];
     }
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    // 检测网络连接的单例,网络变化时的回调方法
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == 1||status ==2) {
             
@@ -138,7 +137,6 @@
                 }
                 if (failure) {
                     failure(error);
-                    
                     [CJSHUDHelper showWaringHud:[NSString stringWithFormat:@"Error:%@",error.userInfo[@"NSLocalizedDescription"]]];
                 }
             }];
@@ -159,8 +157,8 @@
                 uploadParam:(UploadParam *)uploadParam
                  hudMessage:(NSString *)message
                      onView:(UIView *)view
-                    success:(void (^)())success
-                    failure:(void (^)(NSError *))failure {
+                    success:(void (^)(id responseObject))success
+                    failure:(void (^)(NSError *error))failure {
     if (message) {
         [CJSHUDHelper showWaitHud:message onView:view];
     }
@@ -192,7 +190,7 @@
                 [CJSHUDHelper hidenHudFromView:view];
             }
             failure(error);
-            [CJSHUDHelper showWaringHud:@"请求失败,请重试"];
+            [CJSHUDHelper showWaringHud:[NSString stringWithFormat:@"Error:%@",error.userInfo[@"NSLocalizedDescription"]]];
         }
     }];
 //    [manager setTaskDidSendBodyDataBlock:^(NSURLSession *session, NSURLSessionTask *task, int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {

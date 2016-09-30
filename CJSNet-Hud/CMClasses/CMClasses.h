@@ -14,6 +14,6 @@
 #import "CJSTool.h"
 #import "CommonMacro.h"
 #import "ConstantMacro.h"
-#import "NetWorkMacro.h"
+
 
 #endif /* CMClasses_h */

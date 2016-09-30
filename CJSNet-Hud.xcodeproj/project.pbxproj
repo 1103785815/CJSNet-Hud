@@ -33,6 +33,7 @@
 		9FA0BE951D9E262F0061FF3A /* Warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FA0BE481D9E262F0061FF3A /* Warning@2x.png */; };
 		9FA0BE961D9E262F0061FF3A /* Warning@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FA0BE491D9E262F0061FF3A /* Warning@3x.png */; };
 		9FA0BE971D9E262F0061FF3A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0BE4B1D9E262F0061FF3A /* MBProgressHUD.m */; };
+		9FA0BEAE1D9E55D80061FF3A /* NetWorkingConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FA0BEAD1D9E55D80061FF3A /* NetWorkingConst.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +58,6 @@
 		9FA0BE181D9E262F0061FF3A /* CJSTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSTool.m; sourceTree = "<group>"; };
 		9FA0BE191D9E262F0061FF3A /* CommonMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMacro.h; sourceTree = "<group>"; };
 		9FA0BE1A1D9E262F0061FF3A /* ConstantMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantMacro.h; sourceTree = "<group>"; };
-		9FA0BE1B1D9E262F0061FF3A /* NetWorkMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkMacro.h; sourceTree = "<group>"; };
 		9FA0BE1E1D9E262F0061FF3A /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		9FA0BE1F1D9E262F0061FF3A /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		9FA0BE201D9E262F0061FF3A /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -82,6 +82,8 @@
 		9FA0BE491D9E262F0061FF3A /* Warning@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Warning@3x.png"; sourceTree = "<group>"; };
 		9FA0BE4A1D9E262F0061FF3A /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9FA0BE4B1D9E262F0061FF3A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9FA0BEAC1D9E55D80061FF3A /* NetWorkingConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkingConst.h; sourceTree = "<group>"; };
+		9FA0BEAD1D9E55D80061FF3A /* NetWorkingConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkingConst.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,8 @@
 		9FA0BE101D9E262F0061FF3A /* CJSNetWorkHelper */ = {
 			isa = PBXGroup;
 			children = (
+				9FA0BEAC1D9E55D80061FF3A /* NetWorkingConst.h */,
+				9FA0BEAD1D9E55D80061FF3A /* NetWorkingConst.m */,
 				9FA0BE111D9E262F0061FF3A /* NetWorkingHelper.h */,
 				9FA0BE121D9E262F0061FF3A /* NetWorkingHelper.m */,
 				9FA0BE131D9E262F0061FF3A /* UploadParam.h */,
@@ -175,7 +179,6 @@
 				9FA0BE181D9E262F0061FF3A /* CJSTool.m */,
 				9FA0BE191D9E262F0061FF3A /* CommonMacro.h */,
 				9FA0BE1A1D9E262F0061FF3A /* ConstantMacro.h */,
-				9FA0BE1B1D9E262F0061FF3A /* NetWorkMacro.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			files = (
 				9FA0BE7D1D9E262F0061FF3A /* UploadParam.m in Sources */,
 				9FA0BE801D9E262F0061FF3A /* AFNetworkReachabilityManager.m in Sources */,
+				9FA0BEAE1D9E55D80061FF3A /* NetWorkingConst.m in Sources */,
 				9FA0BE971D9E262F0061FF3A /* MBProgressHUD.m in Sources */,
 				9FA0BDD91D9E1AFF0061FF3A /* ViewController.m in Sources */,
 				9FA0BE7E1D9E262F0061FF3A /* CJSTool.m in Sources */,

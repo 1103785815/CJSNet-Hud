@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "CMClasses.h"
 @interface ViewController ()
 
 @end
@@ -14,16 +15,18 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // 参数字典
+    NSDictionary *params = @{};
+    
+    [NetWorkingHelper postWithURLString:[NetWorkingHelper makeURLString:NetLogin] parameters:params hudMessage:@"测试请求" onView:self.view success:^(id responseObject) {
+        // 返回的数据字典
+        NSDictionary *dict = responseObject;
 
+    } failure:^(NSError *error) {
+        
+    }];
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

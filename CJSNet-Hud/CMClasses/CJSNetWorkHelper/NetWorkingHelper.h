@@ -1,6 +1,6 @@
 //
 //  NetWorkingHelper.h
-//  zhiDanOA
+//  
 //
 //  Created by CM on 16/3/25.
 //  Copyright © 2016年 CM. All rights reserved.
@@ -9,22 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "UploadParam.h"
+#import "NetWorkingConst.h"
 
-//@class UploadParam;
-
-/**
- *  网络请求类型
- */
-typedef NS_ENUM(NSUInteger,HttpRequestType) {
-    /**
-     *  get请求
-     */
-    HttpRequestTypeGet = 0,
-    /**
-     *  post请求
-     */
-    HttpRequestTypePost
-};
 @interface NetWorkingHelper : NSObject
 
 /**
@@ -47,8 +33,8 @@ typedef NS_ENUM(NSUInteger,HttpRequestType) {
               parameters:(id)parameters
               hudMessage:(NSString *)message
                   onView:(UIView *)view
-                 success:(void (^)(id))success
-                 failure:(void (^)(NSError *))failure;
+                 success:(void (^)(id responseObject))success
+                 failure:(void (^)(NSError * error))failure;
 
 /**
  *  发送post请求
@@ -62,8 +48,8 @@ typedef NS_ENUM(NSUInteger,HttpRequestType) {
                parameters:(id)parameters
                hudMessage:(NSString *)message
                    onView:(UIView *)view
-                  success:(void (^)(id))success
-                  failure:(void (^)(NSError *))failure;
+                  success:(void (^)(id responseObject))success
+                  failure:(void (^)(NSError * error))failure;
 
 
 /**
@@ -80,7 +66,7 @@ typedef NS_ENUM(NSUInteger,HttpRequestType) {
                 uploadParam:(UploadParam *)uploadParam
                  hudMessage:(NSString *)message
                      onView:(UIView *)view
-                    success:(void (^)())success
-                    failure:(void (^)(NSError *))failure;
+                    success:(void (^)(id responseObject))success
+                    failure:(void (^)(NSError * error))failure;
 
 @end
