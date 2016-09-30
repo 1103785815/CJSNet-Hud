@@ -26,6 +26,8 @@
  *
  *  @param URLString  请求的网址字符串
  *  @param parameters 请求的参数
+ *  @param message    HUD显示的信息（可传nil）
+ *  @param view       添加HUD的View（可传nil）
  *  @param success    请求成功的回调
  *  @param failure    请求失败的回调
  */
@@ -41,6 +43,8 @@
  *
  *  @param URLString  请求的网址字符串
  *  @param parameters 请求的参数
+ *  @param message    HUD显示的信息（可传nil）
+ *  @param view       添加HUD的View（可传nil）
  *  @param success    请求成功的回调
  *  @param failure    请求失败的回调
  */
@@ -58,6 +62,8 @@
  *  @param URLString   上传图片的网址字符串
  *  @param parameters  上传图片的参数
  *  @param uploadParam 上传图片的信息
+ *  @param message     HUD显示的信息（可传nil）
+ *  @param view        添加HUD的View（可传nil）
  *  @param success     上传成功的回调
  *  @param failure     上传失败的回调
  */
