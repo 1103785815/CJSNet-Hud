@@ -20,6 +20,7 @@ NSString *const NetWorkCode = @"code";
 NSString *const NetWorkMessage = @"message";
 NSString *const NetWorkData = @"Data";
 NSString *const NetWorkSucceedCode = @"200";
-
+// 基地址
 NSString *const NetWorkBaseUrl = NetWorkBaseUrl_product;
+// 具体请求地址
 NSString *const NetLogin = @"具体请求地址";
