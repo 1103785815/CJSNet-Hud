@@ -58,6 +58,7 @@
                 
             } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 if (message) {
+                    // 如果有message 则移除HUD
                     [CJSHUDHelper hidenHudFromView:view];
                 }
                 if (success) {
@@ -66,10 +67,34 @@
                     // 请求结果状态码
                     NSString *code = [resultDict objectForKey:NetWorkCode];
                     if ([code isEqualToString:NetWorkSucceedCode]) {
-                        // 解析出内层字典并返回
+                        /*
+                         { code:200
+                           message:"请求成功"
+                           data:{ name:"小明"
+                                  sex:"男"
+                                  ....
+                                 }
+                         }
+                         通常网络请求返回的数据的最外层字典只是用来判断请求是否成功的，并没有实质性的内容，所以我们在这里将最外层字典剥开，向内部回调真正的有用数据：
+                         { name:"小明"
+                           sex:"男"
+                           ....
+                         }
+                         在这里解析外层字典，可以让每次网络请求时不必再写 解析外层字典的冗余代码
+                         */
                         NSDictionary *dataDict = [resultDict objectForKey:NetWorkData];
                         success(dataDict);
                     }else{
+                        /*
+                         { code:400
+                           message:"查无此人"
+                           data:{ name:"小明"
+                                  sex:"男"
+                                  ....
+                                 }
+                         }
+                         当请求失败时（服务器有正常的返回值），提示错误信息。
+                         */
                         NSString *message = [NSString stringWithFormat:@"%@",[resultDict objectForKey:NetWorkMessage]];
                         [CJSHUDHelper showWaringHud:message];
                     }
@@ -80,6 +105,7 @@
                         [CJSHUDHelper hidenHudFromView:view];
                     }
                     failure(error);
+                    // 当请求失败时（服务器没有有正常的返回值），提示错误信息。
                     [CJSHUDHelper showWaringHud:[NSString stringWithFormat:@"Error:%@",error.userInfo[@"NSLocalizedDescription"]]];
                 }
             }];
