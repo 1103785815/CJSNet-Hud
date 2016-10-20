@@ -9,9 +9,9 @@
 #import "NetWorkingConst.h"
 
 // 测试基地址
-#define NetWorkBaseUrl_test @"后台给的测试基地址"
+#define NetWorkBaseUrl_test @"www.test.com"
 // 生产基地址
-#define NetWorkBaseUrl_product @"后台给的生产基地址"
+#define NetWorkBaseUrl_product @"www.product.com"
 
 NSString *const TOKEN = @"token";
 
@@ -23,4 +23,4 @@ NSString *const NetWorkSucceedCode = @"200";
 // 基地址
 NSString *const NetWorkBaseUrl = NetWorkBaseUrl_product;
 // 具体请求地址
-NSString *const NetLogin = @"具体请求地址";
+NSString *const NetLogin = @"login";

@@ -17,16 +17,20 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+}
+- (void)viewDidAppear:(BOOL)animated{
     
-    // 参数字典
     NSDictionary *params = @{@"userName":@"xiaoMing",
                              @"userPassword":@"123456"
                              };
-    
-    [NetWorkingHelper postWithURLString:[NetWorkingHelper makeURLString:NetLogin] parameters:params hudMessage:@"测试请求" onView:self.view success:^(id responseObject) {
-        // 返回的数据字典
-        NSDictionary *dict = responseObject;
-
+    [NetWorkingHelper postWithURLString:[NetWorkingHelper makeURLString:NetLogin] parameters:params showHudBlock:^{
+        [CJSHUDHelper showWaitHud:@"转圈圈.."];
+    } warningHudBlock:^(NSString * waring){
+        [CJSHUDHelper showWaringHud:waring];
+    } hidenHudBlock:^{
+        [CJSHUDHelper hidenHud];
+    } success:^(id responseObject) {
+        
     } failure:^(NSError *error) {
         
     }];
