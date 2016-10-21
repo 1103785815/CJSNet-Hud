@@ -23,10 +23,10 @@
 + (void)postWithURLString:(NSString *)URLString
                parameters:(id)parameters
              showHudBlock:(void (^)(void))showHudBlock
-          warningHudBlock:(void (^)(NSString *))warningBlock
+          warningHudBlock:(void (^)(NSString *warning))warningBlock
             hidenHudBlock:(void (^)(void))hidenHudBlock
                   success:(void (^)(id responseObject))success
-                  failure:(void (^)(NSError * error))failure{
+                  failure:(void (^)(NSError *error))failure{
     
     // 如果有HUD 则添加HUD
     if (showHudBlock) {
@@ -65,12 +65,12 @@
 #pragma mark -- GET请求 --
 
 + (void)getWithURLString:(NSString *)URLString
-               parameters:(id)parameters
-             showHudBlock:(void (^)(void))showHudBlock
-          warningHudBlock:(void (^)(NSString *))warningHudBlock
-            hidenHudBlock:(void (^)(void))hidenHudBlock
-                  success:(void (^)(id responseObject))success
-                  failure:(void (^)(NSError * error))failure{
+              parameters:(id)parameters
+            showHudBlock:(void (^)(void))showHudBlock
+         warningHudBlock:(void (^)(NSString *warning))warningHudBlock
+           hidenHudBlock:(void (^)(void))hidenHudBlock
+                 success:(void (^)(id responseObject))success
+                 failure:(void (^)(NSError * error))failure{
     
     if (showHudBlock) {
         showHudBlock();
@@ -102,7 +102,7 @@
                  parameters:(id)parameters
                 uploadParam:(UploadParam *)uploadParam
                showHudBlock:(void (^)(void))showHudBlock
-            warningHudBlock:(void (^)(NSString *))warningHudBlock
+            warningHudBlock:(void (^)(NSString *warning))warningHudBlock
               hidenHudBlock:(void (^)(void))hidenHudBlock
                     success:(void (^)(id responseObject))success
                     failure:(void (^)(NSError * error))failure{
@@ -176,7 +176,7 @@
  */
 + (void)requestSucceedResponseObject:(id _Nullable) responseObject
                              success:(void (^)(id responseObject))success
-                        warningBlock:(void(^)(NSString *))warningBlock{
+                        warningBlock:(void (^)(NSString *))warningBlock{
     
     if (success) {
         // 网络请求返回的字典

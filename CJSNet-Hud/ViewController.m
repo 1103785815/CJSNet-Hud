@@ -25,8 +25,8 @@
                              };
     [NetWorkingHelper postWithURLString:[NetWorkingHelper makeURLString:NetLogin] parameters:params showHudBlock:^{
         [CJSHUDHelper showWaitHud:@"转圈圈.."];
-    } warningHudBlock:^(NSString * waring){
-        [CJSHUDHelper showWaringHud:waring];
+    } warningHudBlock:^(NSString * warning){
+        [CJSHUDHelper showWaringHud:warning];
     } hidenHudBlock:^{
         [CJSHUDHelper hidenHud];
     } success:^(id responseObject) {

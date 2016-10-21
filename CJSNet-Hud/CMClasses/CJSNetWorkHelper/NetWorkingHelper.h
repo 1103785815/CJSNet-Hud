@@ -37,10 +37,10 @@
 + (void)postWithURLString:(NSString *)URLString
                parameters:(id)parameters
              showHudBlock:(void (^)(void))showHudBlock
-          warningHudBlock:(void (^)(NSString *))warningHudBlock
+          warningHudBlock:(void (^)(NSString *warning))warningHudBlock
             hidenHudBlock:(void (^)(void))hidenHudBlock
                   success:(void (^)(id responseObject))success
-                  failure:(void (^)(NSError * error))failure;
+                  failure:(void (^)(NSError *error))failure;
 /**
  get 请求
  
@@ -55,10 +55,10 @@
 + (void)getWithURLString:(NSString *)URLString
               parameters:(id)parameters
             showHudBlock:(void (^)(void))showHudBlock
-         warningHudBlock:(void (^)(NSString *))warningHudBlock
+         warningHudBlock:(void (^)(NSString *warning))warningHudBlock
            hidenHudBlock:(void (^)(void))hidenHudBlock
                  success:(void (^)(id responseObject))success
-                 failure:(void (^)(NSError * error))failure;
+                 failure:(void (^)(NSError *error))failure;
 
 
 /**
@@ -77,7 +77,7 @@
                  parameters:(id)parameters
                 uploadParam:(UploadParam *)uploadParam
                showHudBlock:(void (^)(void))showHudBlock
-            warningHudBlock:(void (^)(NSString *))warningHudBlock
+            warningHudBlock:(void (^)(NSString *warning))warningHudBlock
               hidenHudBlock:(void (^)(void))hidenHudBlock
                     success:(void (^)(id responseObject))success
                     failure:(void (^)(NSError * error))failure;
